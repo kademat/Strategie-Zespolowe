@@ -1,0 +1,13 @@
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\bin\Debug\SZ.exe
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\bin\Debug\SZ.pdb
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\MainWindow.baml
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\App.g.cs
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\SZ_MarkupCompile.cache
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\SZ.g.resources
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\SZ.Properties.Resources.resources
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\SZ.exe
+C:\Users\Mateusz\Desktop\Semestr 2\Strategie Zespołowe\SZ\obj\x86\Debug\SZ.pdb
