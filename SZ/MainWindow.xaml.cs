@@ -24,6 +24,7 @@ namespace SZ
     {
         Point[] wezel = new Point[1000];
         List<int>[] potomkowie = new List<int>[1000];
+        List<int>[] odleglosciWezlow = new List<int>[1000];
         int iteratorWezlow = 0, wezelOjciec = 0;
         int wezelSymulacji = 0;
         double x, y;
@@ -33,8 +34,10 @@ namespace SZ
         public MainWindow()
         {
             InitializeComponent();
-            for(int i =0;i<1000;i++)
+            for (int i = 0; i < 1000; i++) {
                 potomkowie[i] = new List<int>();
+                odleglosciWezlow[i] = new List<int>();
+            }
             
         }
         /// <summary>
@@ -49,23 +52,30 @@ namespace SZ
             DodajKrople();//na pierwszym wezle pojawia sie kropla wody. Jeśli ona istnieje to zastępujemy ją nową kroplą
             kropla.Margin = new Thickness(wezel[wezelSymulacji].X-15,wezel[wezelSymulacji].Y-10,0,0);//ułożenie początkowe kropli
             opis.Text = "Jesteśmy w węźle: " + wezelSymulacji + " .Węzeł ma potmoków: ";//informacja początkowa
-            int losowanie = -1;//to będzie do zmiany
+            int maxOdleglosc = -1;
+            int wybrany = -1;//to będzie do zmiany
+            int iter = 0;
             foreach (int value in potomkowie[wezelSymulacji])
             {
-                opis.Text += value + " ";
-                losowanie = value;
+                opis.Text += value + " (" + odleglosciWezlow[wezelSymulacji].ElementAt<int>(iter) + ") ";
+                if (maxOdleglosc < odleglosciWezlow[wezelSymulacji].ElementAt<int>(iter))
+                {
+                    maxOdleglosc = odleglosciWezlow[wezelSymulacji].ElementAt<int>(iter);
+                    wybrany = value;
+                }
+                iter++;
             }
-            opis.Text += "Losujemy nr " + losowanie + " i poruszamy się do " + losowanie;//informacja o tym dlaczego ten węzeł wybrany
-            if (losowanie != -1)//jeśli coś zostało wybrane.
+            opis.Text += "Wybieramy nr " + wybrany + " i poruszamy się do " + wybrany;//informacja o tym dlaczego ten węzeł wybrany
+            if (wybrany != -1)//jeśli coś zostało wybrane.
             {
-                AnimacjaRuchu(kropla, losowanie, wezelSymulacji);
-                wezelSymulacji = losowanie;
+                AnimacjaRuchu(kropla, wybrany, wezelSymulacji);
+                wezelSymulacji = wybrany;
             }
             startSymulacji.Content = "Następny krok";
         }
 
         /// <summary>
-        /// Restart animacji
+        /// Kolejne kroki symulacji
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -87,11 +97,14 @@ namespace SZ
         {
             pobranieXYzPlanszy(out x, out y);
             DodajWezel(x, y);
+            wezel[iteratorWezlow] = new Point(x, y);
 
-            if(iteratorWezlow!=wezelOjciec)
+            if (iteratorWezlow != wezelOjciec) {
                 potomkowie[wezelOjciec].Add(iteratorWezlow);
+                odleglosciWezlow[wezelOjciec].Add(odleglosc(wezelOjciec, iteratorWezlow));
+            }
 
-            wezel[iteratorWezlow++] = new Point(x, y);
+            iteratorWezlow++;
 
             RysowanieLinii();
         }
@@ -105,6 +118,19 @@ namespace SZ
             pobranieXYzPlanszy(out x, out y);
             if(iteratorWezlow>=1)
                 ZaznaczenieWezla();
+        }
+        /// <summary>
+        /// Odległość węzłów
+        /// </summary>
+        /// <param name="a">Nr pierwszego węzła</param>
+        /// <param name="b">Nr drugiego węzła</param>
+        /// <returns>x*x + y*y = odległość do kwadratu</returns>
+        private int odleglosc(int a, int b)
+        {
+            int x = (int)(wezel[a].X - wezel[b].X);
+            int y = (int)(wezel[a].Y - wezel[b].Y);
+            int wynik = x * x + y * y;
+            return wynik;
         }
         /// <summary>
         /// Czerwone linie łączące węzły

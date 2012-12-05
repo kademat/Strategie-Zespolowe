@@ -7,6 +7,6 @@
         <Button Canvas.Left="12" Canvas.Top="417" Content="Rozpocznij symulację" Height="23" Name="startSymulacji" Width="168" Click="startSymulacji_Click" />
         <TextBox Canvas.Left="186" Canvas.Top="387" Height="53" Name="opis" Width="555" />
         <Label Canvas.Left="106" Canvas.Top="387" Content="Opis ruchu:" Height="28" Name="label1" />
-        <Button Canvas.Left="12" Canvas.Top="389" Content="Restart" Height="23" Name="restart" Width="88" Click="button1_Click" />
+        <Button Canvas.Left="12" Canvas.Top="389" Content="Start" Height="23" Name="restart" Width="88" Click="button1_Click" />
     </Canvas>
 </Window>
